@@ -9,7 +9,7 @@ export function Cta({ label = "Join the FREE WhatsApp Group", sub = true }: { la
         <span>{label}</span>
         <span className="cta-arrow" aria-hidden="true">→</span>
       </a>
-      {sub && <p className="cta-sub">100% free · No card needed · Leave anytime</p>}
+      {sub && <p className="cta-sub">No experience needed · Leave anytime</p>}
     </div>
   );
 }

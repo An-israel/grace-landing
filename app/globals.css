@@ -246,11 +246,8 @@ h3 { font-size: 1.2rem; font-weight: 800; }
 .stack li { display: flex; gap: 12px; align-items: baseline; padding: 14px 0; border-bottom: 1px dashed var(--line); }
 .check { color: var(--accent); font-weight: 900; flex: none; }
 .stack-item { flex: 1; }
-.worth { color: var(--muted); text-decoration: line-through; white-space: nowrap; font-weight: 700; }
 .price-box { text-align: center; margin: 2rem 0 0; }
-.value { color: var(--muted); font-size: 1.1rem; margin: 0; }
 .today { font-size: 1.3rem; font-weight: 800; margin: 0.2rem 0 1.2rem; }
-.today strong { font-family: var(--font-display); font-weight: 400; font-size: 3.4rem; color: var(--accent); display: block; line-height: 1.1; }
 .today.small { font-size: 1.1rem; color: var(--accent-2); }
 .guarantee {
   display: flex; gap: 22px; align-items: center; margin-top: 2rem; padding: 24px;

@@ -4,12 +4,10 @@ import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { YouTube3D, YouTubeIcon, YouTubeLogo } from "@/components/YouTube";
 import { program, proof, site, testimonials } from "@/site.config";
 
-const naira = (n: number) => "₦" + n.toLocaleString("en-NG");
-
 const enrolLink = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(site.enrolMessage)}`;
 
 const pains = [
-  "You've watched hundreds of “make money online” videos and still haven't made your first ₦1.",
+  "You've watched hundreds of “make money online” videos and still haven't earned anything from it.",
   "You don't know which skill to pick, so you keep jumping from one thing to the next.",
   "You're scared of showing your face, or you think you need an expensive camera and laptop.",
   "You tried YouTube before, got 12 views, and gave up.",
@@ -20,7 +18,7 @@ const pillars = [
   { n: "02", t: "AI Content Creation", d: "Use AI to write scripts, generate voiceovers and build videos, even without showing your face." },
   { n: "03", t: "Thumbnails That Get Clicks", d: "Design thumbnails people can't scroll past, straight from your phone." },
   { n: "04", t: "Copyright, Simplified", d: "Know exactly what you can and can't use, so your channel doesn't get strikes." },
-  { n: "05", t: "YouTube Monetization", d: "The clear path to the YouTube Partner Program and your first dollar payout." },
+  { n: "05", t: "YouTube Monetization", d: "The clear path to the YouTube Partner Program and your first payout." },
   { n: "06", t: "Facebook & TikTok Money", d: "Repurpose your content and get paid on more than one platform." },
   { n: "07", t: "AI Automation", d: "Let AI tools do the heavy lifting so you can create more in less time." },
 ];
@@ -39,12 +37,12 @@ const notForYou = [
 
 const steps = [
   { t: "Join the free WhatsApp group", d: "One click. You'll get free lessons, tips and updates straight on WhatsApp." },
-  { t: "Learn the basics for free", d: "See how YouTube automation works and get clear on the path before you spend a kobo." },
+  { t: "Learn the basics for free", d: "See how YouTube automation works and get clear on the path before you commit to anything." },
   { t: "Go all in with the Blueprint", d: "When you're ready, get the full step-by-step training plus one-on-one support." },
 ];
 
 const faqs = [
-  { q: "Is the WhatsApp group really free?", a: "Yes. It's 100% free to join. You'll get free tips, lessons and updates. The paid program is optional, for people who want the full step-by-step system and one-on-one support." },
+  { q: "Is the WhatsApp group really free?", a: "Yes, joining the group costs you nothing. You'll get tips, lessons and updates. The paid program is optional, for people who want the full step-by-step system and one-on-one support." },
   { q: "I'm a complete beginner. Can I do this?", a: "Yes. This was built for beginners. Everything is broken down step by step, and you can ask questions whenever you get stuck." },
   { q: "Do I need to show my face?", a: "No. YouTube automation uses AI for scripts, voiceovers and visuals, so you can build a channel without ever appearing on camera." },
   { q: "Can I do this with just my phone?", a: "Yes. A smartphone and data are enough to start. A laptop helps, but it isn't required." },
@@ -96,9 +94,9 @@ export default function Home() {
               )}
             </div>
             <div className="float-card">
-              <span className="float-label">One video earned</span>
-              <strong>$7,654.40</strong>
-              <span className="float-sub"><YouTubeIcon size={16} /> 395,940 views · YouTube Studio</span>
+              <span className="float-label">One video hit</span>
+              <strong>395,940 views</strong>
+              <span className="float-sub"><YouTubeIcon size={16} /> Monetized · YouTube Studio</span>
             </div>
           </div>
         </div>
@@ -106,8 +104,8 @@ export default function Home() {
         {/* Proof strip */}
         <div className="container">
           <ul className="stats">
-            <li><strong>$7,654</strong><span>from a single video</span></li>
-            <li><strong>$3,082</strong><span>earned in one month</span></li>
+            <li><strong>395K+</strong><span>views on a single video</span></li>
+            <li><strong>208K</strong><span>hours of watch time on that video</span></li>
             <li><strong>7,395</strong><span>subscribers on a student channel now in the YouTube Partner Program</span></li>
             <li><strong>2 yrs</strong><span>teaching digital skills</span></li>
           </ul>
@@ -247,22 +245,12 @@ export default function Home() {
                 <li key={s.item}>
                   <span className="check" aria-hidden="true">✓</span>
                   <span className="stack-item">{s.item}</span>
-                  {s.worth !== null && <span className="worth">{naira(s.worth)}</span>}
                 </li>
               ))}
             </ul>
 
             <div className="price-box">
-              {program.price !== null ? (
-                <>
-                  {program.valuePrice !== null && (
-                    <p className="value">Total value: <s>{naira(program.valuePrice)}</s></p>
-                  )}
-                  <p className="today">Today: <strong>{naira(program.price)}</strong></p>
-                </>
-              ) : (
-                <p className="today small">Message me on WhatsApp for today's price</p>
-              )}
+              <p className="today small">Send me a message on WhatsApp to get all the details</p>
               <p className="slots center-slots"><span className="slots-dot" aria-hidden="true" />{site.slotsMessage}</p>
               <a className="cta cta-outline" href={enrolLink} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon />
@@ -272,7 +260,7 @@ export default function Home() {
 
             <div className="guarantee">
               <div className="seal" aria-hidden="true">
-                <span>100%</span>
+                <span>Full</span>
                 <small>Support</small>
               </div>
               <div>
@@ -341,7 +329,7 @@ export default function Home() {
             A Year From Now, You'll Wish You <span className="hl">Started Today.</span>
           </h2>
           <p className="lead center">
-            It's free to join. The only thing it costs you to wait is time.
+            Joining takes one click. The only thing waiting costs you is time.
           </p>
           <Cta label="Join the FREE WhatsApp Group Now" />
         </div>

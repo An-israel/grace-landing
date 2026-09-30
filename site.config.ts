@@ -33,19 +33,16 @@ export const site = {
 export const program = {
   name: "YouTube Automation Blueprint",
 
-  // Prices in Naira. Leave as null to show "Message Grace for today's price".
-  // Example: price: 25000, valuePrice: 150000
-  price: null as number | null,
-  valuePrice: null as number | null,
-
-  // The value stack. Set `worth` (in Naira) to show a crossed-out value per item.
+  // No prices or money amounts are shown anywhere on the page (TikTok ads
+  // review can reject landing pages that list prices or earnings).
+  // What's included in the program:
   stack: [
-    { item: "Step-by-step YouTube Automation training — channel setup to monetization", worth: null as number | null },
-    { item: "AI content system — scripts, voiceovers and videos without showing your face", worth: null as number | null },
-    { item: "Thumbnail training — make thumbnails people actually click", worth: null as number | null },
-    { item: "Copyright made simple — avoid strikes and protect your channel", worth: null as number | null },
-    { item: "Facebook & TikTok monetization — get paid on more than one platform", worth: null as number | null },
-    { item: "One-on-one support — ask questions and get unstuck, fast", worth: null as number | null },
+    { item: "Step-by-step YouTube Automation training — channel setup to monetization" },
+    { item: "AI content system — scripts, voiceovers and videos without showing your face" },
+    { item: "Thumbnail training — make thumbnails people actually click" },
+    { item: "Copyright made simple — avoid strikes and protect your channel" },
+    { item: "Facebook & TikTok monetization — get paid on more than one platform" },
+    { item: "One-on-one support — ask questions and get unstuck, fast" },
   ],
 
   guarantee: {
@@ -60,22 +57,22 @@ export const program = {
 export const proof = [
   {
     src: "/proof/viral-video.webp",
-    alt: "YouTube Studio: one video with 395,940 views, 208.2K watch hours and $7,654.40 estimated revenue",
-    headline: "$7,654.40 from ONE video",
+    alt: "YouTube Studio: one video with 395,940 views and 208.2K watch hours",
+    headline: "395,940 views on ONE video",
     caption: "395,940 views · 208.2K watch hours · +2.7K subscribers",
     wide: true,
   },
   {
     src: "/proof/revenue-april.webp",
-    alt: "YouTube Studio: $3,082.22 estimated revenue in April and $480.66 in the last 28 days",
-    headline: "$3,082.22 in April",
+    alt: "YouTube Studio revenue screen showing a monetized channel",
+    headline: "Monetized and earning",
     caption: "99.5% from Watch Page ads",
   },
   {
     src: "/proof/revenue-july.webp",
-    alt: "YouTube Studio: $631.42 estimated revenue in July",
-    headline: "$631.42 in July",
-    caption: "Consistent daily earnings",
+    alt: "YouTube Studio revenue screen with a daily earnings chart",
+    headline: "Paid by YouTube, every day",
+    caption: "Steady daily earnings chart",
   },
   {
     src: "/proof/student-partner.webp",
