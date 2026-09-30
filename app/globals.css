@@ -352,7 +352,7 @@ h3 { font-size: 1.2rem; font-weight: 800; }
 /* ── Hero background (AI image) ── */
 .hero { position: relative; isolation: isolate; overflow: hidden; }
 .hero-bg { position: absolute; inset: 0; z-index: -1; }
-.hero-bg img { object-fit: cover; opacity: 0.35; }
+.hero-bg img { object-fit: cover; object-position: 70% center; opacity: 0.6; }
 .hero-bg::after {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(90deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 55%, rgba(10,10,10,0.4) 100%),
@@ -414,7 +414,7 @@ h3 { font-size: 1.2rem; font-weight: 800; }
 .credit a:hover { color: var(--accent-2); }
 
 @media (max-width: 860px) {
-  .hero-bg::after { background: linear-gradient(180deg, rgba(10,10,10,0.75), rgba(10,10,10,0.9) 60%, var(--bg)); }
+  .hero-bg::after { background: linear-gradient(180deg, rgba(10,10,10,0.55), rgba(10,10,10,0.8) 55%, var(--bg)); }
   .hero-copy .slots { justify-content: center; }
   .hero-3d { top: -26px; right: -14px; transform: scale(0.75); }
   .section { padding: 72px 0; }

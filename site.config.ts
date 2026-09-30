@@ -22,7 +22,7 @@ export const site = {
 
   // AI-generated hero background. Save the image as public/hero-bg.webp (or .jpg)
   // and set this to its path, e.g. "/hero-bg.webp". While null, a red glow is used.
-  heroBackground: null as string | null,
+  heroBackground: "/hero-bg.webp" as string | null,
 
   // Scarcity line shown in the top bar, under the hero button and on the offer.
   slotsMessage: "Limited 1-on-1 slots available",
