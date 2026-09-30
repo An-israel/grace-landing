@@ -11,7 +11,9 @@ Everything you'll want to change is in **`site.config.ts`**:
 - Guarantee wording
 - Proof screenshots (`public/proof/`)
 - Written testimonials (the section appears once you add one)
-- Photo: add `public/grace.jpg`, then set `photo: "/grace.jpg"`
+- Photo: `public/grace.webp`
+- Hero background: save the AI image as `public/hero-bg.webp` (or `.jpg`), then set `heroBackground: "/hero-bg.webp"`
+- Scarcity line (`slotsMessage`) and the footer credit
 
 ## Run it
 

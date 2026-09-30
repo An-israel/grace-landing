@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Cta } from "@/components/Cta";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { YouTube3D, YouTubeIcon, YouTubeLogo } from "@/components/YouTube";
 import { program, proof, site, testimonials } from "@/site.config";
 
 const naira = (n: number) => "₦" + n.toLocaleString("en-NG");
@@ -60,14 +61,20 @@ export default function Home() {
     <main>
       {/* ── Announcement bar ───────────────────────────── */}
       <a className="topbar" href={site.whatsappGroup} target="_blank" rel="noopener noreferrer">
-        <span className="pulse" aria-hidden="true" /> FREE community is open. Tap here to join on WhatsApp →
+        <span className="pulse" aria-hidden="true" />
+        <span>FREE community is open · <strong>{site.slotsMessage}</strong> · Join on WhatsApp →</span>
       </a>
 
       {/* ── Hero ───────────────────────────────────────── */}
       <header className="hero">
+        {site.heroBackground && (
+          <div className="hero-bg" aria-hidden="true">
+            <Image src={site.heroBackground} alt="" fill priority sizes="100vw" />
+          </div>
+        )}
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="eyebrow">{site.brand} · {site.topic}</p>
+            <p className="eyebrow"><YouTubeIcon size={20} /> {site.brand} · {site.topic}</p>
             <h1>
               Turn Your Phone Into a <span className="hl">YouTube Income Skill</span>, Using AI.
             </h1>
@@ -76,12 +83,14 @@ export default function Home() {
               build and monetize a YouTube channel with AI, even if you're starting from zero.
             </p>
             <Cta />
+            <p className="slots"><span className="slots-dot" aria-hidden="true" />{site.slotsMessage}</p>
           </div>
 
           <div className="hero-visual">
+            <YouTube3D className="hero-3d" />
             <div className="portrait">
               {site.photo ? (
-                <Image src={site.photo} alt={`${site.brand}`} fill priority sizes="(max-width: 860px) 80vw, 420px" />
+                <Image src={site.photo} alt={`${site.brand}, YouTube educator`} fill priority sizes="(max-width: 860px) 80vw, 420px" />
               ) : (
                 <div className="monogram" aria-hidden="true">G</div>
               )}
@@ -89,7 +98,7 @@ export default function Home() {
             <div className="float-card">
               <span className="float-label">One video earned</span>
               <strong>$7,654.40</strong>
-              <span className="float-sub">395,940 views · YouTube Studio</span>
+              <span className="float-sub"><YouTubeIcon size={16} /> 395,940 views · YouTube Studio</span>
             </div>
           </div>
         </div>
@@ -125,6 +134,7 @@ export default function Home() {
       {/* ── What you'll learn ─────────────────────────── */}
       <section className="section alt">
         <div className="container">
+          <div className="center logo-row"><YouTubeLogo size={34} /></div>
           <p className="kicker center">The skill stack</p>
           <h2 className="center">Everything You Need to Go From <span className="hl">Zero to Monetized</span></h2>
           <div className="pillars">
@@ -145,7 +155,7 @@ export default function Home() {
         <div className="container">
           <p className="kicker center">Receipts, not promises</p>
           <h2 className="center">Real Screenshots. <span className="hl">Real Money.</span></h2>
-          <p className="section-lead center">Straight from YouTube Studio. No edits, no stock photos.</p>
+          <p className="section-lead center">Straight from <YouTubeLogo size={20} /> Studio. No edits, no stock photos.</p>
           <div className="proof-grid">
             {proof.map((p) => (
               <figure key={p.src} className={`proof ${p.wide ? "wide" : ""}`}>
@@ -227,6 +237,7 @@ export default function Home() {
       {/* ── Offer ──────────────────────────────────────── */}
       <section className="section offer-section" id="program">
         <div className="container narrow">
+          <YouTube3D className="offer-3d" />
           <p className="kicker center">When you're ready to go all in</p>
           <h2 className="center">The <span className="hl">{program.name}</span></h2>
           <div className="offer">
@@ -252,7 +263,8 @@ export default function Home() {
               ) : (
                 <p className="today small">Message me on WhatsApp for today's price</p>
               )}
-              <a className="cta cta-gold-outline" href={enrolLink} target="_blank" rel="noopener noreferrer">
+              <p className="slots center-slots"><span className="slots-dot" aria-hidden="true" />{site.slotsMessage}</p>
+              <a className="cta cta-outline" href={enrolLink} target="_blank" rel="noopener noreferrer">
                 <WhatsAppIcon />
                 <span>I Want In: Message Grace</span>
               </a>
@@ -324,6 +336,7 @@ export default function Home() {
       {/* ── Final CTA ──────────────────────────────────── */}
       <section className="final">
         <div className="container narrow center">
+          <YouTube3D className="final-3d" />
           <h2>
             A Year From Now, You'll Wish You <span className="hl">Started Today.</span>
           </h2>
@@ -336,7 +349,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="container">
-          <p className="footer-brand">{site.brand}</p>
+          <p className="footer-brand"><YouTubeIcon size={30} /> {site.brand}</p>
           <p className="muted">{site.tagline}</p>
           <p className="footer-links">
             <a href={site.whatsappGroup} target="_blank" rel="noopener noreferrer">WhatsApp Community</a>
@@ -349,6 +362,10 @@ export default function Home() {
             YouTube, Google, Meta or TikTok.
           </p>
           <p className="muted small">© {new Date().getFullYear()} {site.brand}. All rights reserved.</p>
+          <p className="credit">
+            Built by{" "}
+            <a href={site.credit.url} target="_blank" rel="noopener noreferrer">{site.credit.label}</a>
+          </p>
         </div>
       </footer>
 
