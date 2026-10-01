@@ -9,7 +9,6 @@ Everything you'll want to change is in **`site.config.ts`**:
 - WhatsApp group link and phone number
 - Program name, price and value price (in ₦)
 - Guarantee wording
-- Proof screenshots (`public/proof/`)
 - Written testimonials (the section appears once you add one)
 - Photo: `public/grace.webp`
 - Hero background: save the AI image as `public/hero-bg.webp` (or `.jpg`), then set `heroBackground: "/hero-bg.webp"`

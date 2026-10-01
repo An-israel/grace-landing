@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Cta } from "@/components/Cta";
 import { WhatsAppIcon } from "@/components/WhatsAppIcon";
 import { YouTube3D, YouTubeIcon, YouTubeLogo } from "@/components/YouTube";
-import { program, proof, site, testimonials } from "@/site.config";
+import { program, site, testimonials } from "@/site.config";
 
 const enrolLink = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(site.enrolMessage)}`;
 
@@ -19,7 +19,7 @@ const pillars = [
   { n: "03", t: "Thumbnails That Get Clicks", d: "Design thumbnails people can't scroll past, straight from your phone." },
   { n: "04", t: "Copyright, Simplified", d: "Know exactly what you can and can't use, so your channel doesn't get strikes." },
   { n: "05", t: "YouTube Monetization", d: "The clear path to the YouTube Partner Program and your first payout." },
-  { n: "06", t: "Facebook & TikTok Money", d: "Repurpose your content and get paid on more than one platform." },
+  { n: "06", t: "Facebook & TikTok Monetization", d: "Repurpose your content and get paid on more than one platform." },
   { n: "07", t: "AI Automation", d: "Let AI tools do the heavy lifting so you can create more in less time." },
 ];
 
@@ -94,20 +94,20 @@ export default function Home() {
               )}
             </div>
             <div className="float-card">
-              <span className="float-label">One video hit</span>
-              <strong>395,940 views</strong>
-              <span className="float-sub"><YouTubeIcon size={16} /> Monetized · YouTube Studio</span>
+              <span className="float-label">Beginner friendly</span>
+              <strong>Step by step</strong>
+              <span className="float-sub"><YouTubeIcon size={16} /> With 1-on-1 support</span>
             </div>
           </div>
         </div>
 
-        {/* Proof strip */}
+        {/* Highlights strip */}
         <div className="container">
           <ul className="stats">
-            <li><strong>395K+</strong><span>views on a single video</span></li>
-            <li><strong>208K</strong><span>hours of watch time on that video</span></li>
-            <li><strong>7,395</strong><span>subscribers on a student channel now in the YouTube Partner Program</span></li>
             <li><strong>2 yrs</strong><span>teaching digital skills</span></li>
+            <li><strong>7</strong><span>practical skills, from channel setup to AI automation</span></li>
+            <li><strong>1-on-1</strong><span>support when you get stuck</span></li>
+            <li><strong>Phone</strong><span>is enough to start learning</span></li>
           </ul>
         </div>
       </header>
@@ -148,29 +148,47 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Proof wall ─────────────────────────────────── */}
-      <section className="section" id="results">
-        <div className="container">
-          <p className="kicker center">Receipts, not promises</p>
-          <h2 className="center">Real Screenshots. <span className="hl">Real Money.</span></h2>
-          <p className="section-lead center">Straight from <YouTubeLogo size={20} /> Studio. No edits, no stock photos.</p>
-          <div className="proof-grid">
-            {proof.map((p) => (
-              <figure key={p.src} className={`proof ${p.wide ? "wide" : ""}`}>
-                <div className="proof-img">
-                  <Image src={p.src} alt={p.alt} fill sizes="(max-width: 860px) 100vw, 50vw" />
-                </div>
-                <figcaption>
-                  <strong>{p.headline}</strong>
-                  <span>{p.caption}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-          <p className="disclaimer-inline">
-            Results shown are not typical and are not a promise of earnings. Your results depend on your effort,
-            consistency and niche.
+      {/* ── What it really takes ──────────────────────── */}
+      <section className="section" id="what-it-takes">
+        <div className="container narrow">
+          <p className="kicker center">No hype. Here's the truth.</p>
+          <h2 className="center">What It <span className="hl">Really Takes</span></h2>
+          <p className="section-lead center">
+            YouTube automation is a skill you learn and practise, not a shortcut. Before you join, here's exactly
+            what's involved.
           </p>
+          <div className="takes">
+            <article className="take">
+              <h3>The work you'll do</h3>
+              <ul>
+                <li>Pick a niche and set up your channel properly</li>
+                <li>Research topics, then create videos with AI tools (scripts, voiceovers, visuals)</li>
+                <li>Design thumbnails and write titles</li>
+                <li>Upload consistently, usually for several months, and keep improving from your analytics</li>
+              </ul>
+            </article>
+            <article className="take">
+              <h3>YouTube's requirements to earn</h3>
+              <ul>
+                <li>Join the YouTube Partner Program, which has minimum subscriber and watch-time (or Shorts views) thresholds</li>
+                <li>Follow YouTube's monetization policies, community guidelines and copyright rules</li>
+                <li>Make original or meaningfully transformed content. Re-uploaded content is not monetized</li>
+                <li>Have a linked AdSense account to receive payments</li>
+              </ul>
+              <p className="take-note">
+                YouTube sets and can change these rules. Always check YouTube's official Partner Program page.
+              </p>
+            </article>
+            <article className="take">
+              <h3>How this works</h3>
+              <ul>
+                <li>I teach the skill: training, guidance and one-on-one support</li>
+                <li>Any income comes from YouTube's ad revenue sharing once your channel qualifies, not from me</li>
+                <li>Results depend on your effort, consistency and niche. Many channels take months, and some never qualify</li>
+                <li>No income or monetization result is guaranteed</li>
+              </ul>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -344,8 +362,8 @@ export default function Home() {
             <a href={site.tiktok} target="_blank" rel="noopener noreferrer">TikTok</a>
           </p>
           <p className="disclaimer">
-            Earnings disclaimer: the screenshots on this page show real results, but they are not typical and are
-            not a guarantee of income. YouTube automation is a skill, and results depend on your effort,
+            Disclaimer: this page offers education and training only. It is not a job, an investment or a
+            guarantee of income. YouTube automation is a skill, and results depend on your effort,
             consistency, niche and many factors outside anyone's control. This site is not affiliated with
             YouTube, Google, Meta or TikTok.
           </p>

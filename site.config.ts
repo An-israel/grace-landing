@@ -52,36 +52,6 @@ export const program = {
   },
 };
 
-// Proof screenshots in public/proof/. Captions describe only what the
-// screenshot itself shows.
-export const proof = [
-  {
-    src: "/proof/viral-video.webp",
-    alt: "YouTube Studio: one video with 395,940 views and 208.2K watch hours",
-    headline: "395,940 views on ONE video",
-    caption: "395,940 views · 208.2K watch hours · +2.7K subscribers",
-    wide: true,
-  },
-  {
-    src: "/proof/revenue-april.webp",
-    alt: "YouTube Studio revenue screen showing a monetized channel",
-    headline: "Monetized and earning",
-    caption: "99.5% from Watch Page ads",
-  },
-  {
-    src: "/proof/revenue-july.webp",
-    alt: "YouTube Studio revenue screen with a daily earnings chart",
-    headline: "Paid by YouTube, every day",
-    caption: "Steady daily earnings chart",
-  },
-  {
-    src: "/proof/student-partner.webp",
-    alt: "WhatsApp chat: a student's channel accepted into the YouTube Partner Program with 7,395 subscribers",
-    headline: "Student: “You're a YouTube Partner”",
-    caption: "7,395 subscribers · 67.6K views in 28 days",
-  },
-];
-
 // Written testimonials. Add real ones like:
 // { name: "Chioma A.", location: "Lagos", result: "Monetized in 3 months", quote: "..." }
 // The section stays hidden until at least one is added.

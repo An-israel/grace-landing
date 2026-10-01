@@ -190,20 +190,12 @@ h3 { font-size: 1.2rem; font-weight: 800; }
 .pillar-n { font-family: var(--font-display); color: var(--accent); font-size: 1.8rem; display: block; margin-bottom: 8px; }
 .pillar p { color: var(--muted); margin: 0; font-size: 0.97rem; }
 
-/* ── Proof ── */
-.proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 2.5rem; }
-.proof {
-  margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-  overflow: hidden; display: flex; flex-direction: column;
-}
-.proof.wide { grid-column: 1 / -1; }
-.proof-img { position: relative; aspect-ratio: 9 / 13; background: #000; }
-.proof.wide .proof-img { aspect-ratio: 576 / 330; max-height: 460px; }
-.proof-img img { object-fit: contain; }
-.proof figcaption { padding: 16px 18px; display: grid; gap: 2px; border-top: 1px solid var(--line); }
-.proof figcaption strong { color: var(--accent-2); font-size: 1.1rem; }
-.proof figcaption span { color: var(--muted); font-size: 0.88rem; }
-.disclaimer-inline { color: var(--muted); font-size: 0.8rem; text-align: center; margin-top: 1.4rem; }
+/* ── What it takes ── */
+.takes { display: grid; gap: 18px; margin-top: 2.2rem; }
+.take { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 24px 26px; }
+.take h3 { margin-bottom: 0.7rem; }
+.take ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; color: #dddddd; }
+.take-note { margin: 1rem 0 0; font-size: 0.85rem; color: var(--muted); }
 
 /* ── Testimonials ── */
 .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 2.5rem; }
@@ -329,7 +321,6 @@ h3 { font-size: 1.2rem; font-weight: 800; }
   .stats li:nth-child(2) { border-right: 0; }
   .stats li:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
   .section { padding: 64px 0; }
-  .proof-grid { grid-template-columns: 1fr 1fr; }
   .fit, .steps { grid-template-columns: 1fr; }
   .about { grid-template-columns: 1fr; text-align: center; gap: 28px; }
   .about-photo { width: 200px; margin: 0 auto; }
@@ -340,7 +331,6 @@ h3 { font-size: 1.2rem; font-weight: 800; }
 @media (max-width: 520px) {
   .container { padding: 0 16px; }
   .cta { width: 100%; font-size: 1rem; padding: 18px 16px; gap: 10px; }
-  .proof-grid { grid-template-columns: 1fr; }
   .topbar { font-size: 0.8rem; }
   .eyebrow { font-size: 0.7rem; letter-spacing: 0.04em; }
   .monogram { font-size: 9rem; }
