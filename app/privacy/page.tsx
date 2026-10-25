@@ -41,10 +41,12 @@ export default function Privacy() {
           </ul>
           <p>We don't sell your information or share it with anyone for their own marketing.</p>
 
-          <h2>How it's stored</h2>
+          <h2>How it's shared and stored</h2>
           <p>
-            Form entries are delivered to us through a form-processing service (Formspree) and kept only as long as
-            we need them to stay in touch with you about classes.
+            When you submit the form, WhatsApp opens with a message containing the details you entered. Nothing is
+            sent to us until you choose to send that message. WhatsApp's own privacy policy applies to messages you
+            send there. We may also receive a copy of your form entry by email through a form-processing service
+            (Formspree). We keep your details only as long as we need them to stay in touch with you about classes.
           </p>
 
           <h2>Your choices</h2>

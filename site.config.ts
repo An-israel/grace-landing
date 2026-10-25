@@ -5,7 +5,8 @@
 //  • No income, earnings or "make money" claims, and no earnings screenshots
 //  • No guarantees, "get rich quick" or exaggerated words ("best", "fastest", "#1")
 //  • No fake urgency ("only 3 slots left", countdowns)
-//  • No links to messaging apps (WhatsApp, Telegram); people sign up with the form
+//  • No visible links to messaging apps on the page: WhatsApp only opens
+//    AFTER someone submits the sign-up form
 //  • No other brands' logos
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -20,9 +21,13 @@ export const site = {
   tiktokUrl: "https://www.tiktok.com/@grace.the.markete0",
   photo: "/grace.webp",
 
-  // Where the sign-up form sends entries. Create a free form at
-  // https://formspree.io, then paste its endpoint here, e.g.
-  // "https://formspree.io/f/abcdwxyz". Entries arrive in Grace's email.
+  // After the form is submitted, the visitor is taken to a WhatsApp chat with
+  // this number (international format, no +), with their details pre-typed.
+  whatsappNumber: "2348022180235",
+
+  // Optional: also email every sign-up to Grace as a backup. Create a free form
+  // at https://formspree.io and paste its endpoint here, e.g.
+  // "https://formspree.io/f/abcdwxyz". Leave "" to skip.
   formEndpoint: "",
 
   credit: { label: "SwiftCreator", url: "https://swiftcreator.vercel.app/" },

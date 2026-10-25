@@ -3,35 +3,63 @@
 import { useState } from "react";
 import { site } from "@/site.config";
 
-type Status = "idle" | "sending" | "sent" | "error";
+type Status = "idle" | "sending" | "redirecting";
+
+function whatsappLink(data: FormData) {
+  const field = (k: string) => String(data.get(k) ?? "").trim();
+  const lines = [
+    "Hi Grace, I just filled the form on the Grace Digital Academy website and I'd like the class details.",
+    "",
+    `Name: ${field("name")}`,
+    `Phone: ${field("phone")}`,
+    `Email: ${field("email")}`,
+  ];
+  if (field("goal")) lines.push(`I'd like to learn: ${field("goal")}`);
+  return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(lines.join("\n"))}`;
+}
+
+/** Sends a backup copy to Formspree (if configured) without ever blocking the redirect for long. */
+async function sendBackup(data: FormData) {
+  if (!site.formEndpoint) return;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 4000);
+  try {
+    await fetch(site.formEndpoint, {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" },
+      signal: controller.signal,
+    });
+  } catch {
+    // The WhatsApp message carries the same details, so a failed backup is fine.
+  } finally {
+    clearTimeout(timer);
+  }
+}
 
 export function JoinForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [link, setLink] = useState("");
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!site.formEndpoint) {
-      setStatus("error");
-      return;
-    }
+    const data = new FormData(e.currentTarget);
+    const url = whatsappLink(data);
     setStatus("sending");
-    try {
-      const res = await fetch(site.formEndpoint, {
-        method: "POST",
-        body: new FormData(e.currentTarget),
-        headers: { Accept: "application/json" },
-      });
-      setStatus(res.ok ? "sent" : "error");
-    } catch {
-      setStatus("error");
-    }
+    await sendBackup(data);
+    setLink(url);
+    setStatus("redirecting");
+    window.location.href = url;
   }
 
-  if (status === "sent") {
+  if (status === "redirecting") {
     return (
       <div className="form-done" role="status">
-        <h3>Thank you, you're on the list.</h3>
-        <p>Grace will reach out to you with the class details soon. Keep learning!</p>
+        <h3>Thank you! Opening WhatsApp…</h3>
+        <p>Your details are ready to send to Grace. Just tap send in WhatsApp.</p>
+        <a className="btn btn-primary btn-block" href={link}>
+          Didn't open? Tap here
+        </a>
       </div>
     );
   }
@@ -67,14 +95,8 @@ export function JoinForm() {
         </span>
       </label>
       <button className="btn btn-primary btn-block" type="submit" disabled={status === "sending"}>
-        {status === "sending" ? "Sending…" : "Get the class details"}
+        {status === "sending" ? "One moment…" : "Get the class details"}
       </button>
-      {status === "error" && (
-        <p className="form-error" role="alert">
-          Sorry, that didn't go through. Please try again, or email{" "}
-          <a href={`mailto:${site.email}`}>{site.email}</a>.
-        </p>
-      )}
     </form>
   );
 }

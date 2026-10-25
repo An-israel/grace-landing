@@ -33,7 +33,7 @@ const faqs = [
     a: "No, and nobody honestly can. Grace Digital Academy teaches skills. Any results you get depend on your effort, your niche, your audience and many factors outside anyone's control.",
   },
   { q: "Is this a network marketing or recruiting scheme?", a: "No. There's nothing to recruit and no one to sign up under you. It's education: courses and tools that teach marketing skills." },
-  { q: "How will Grace contact me?", a: "By phone or email, using the details you give in the form. Your details are only used for this." },
+  { q: "How will Grace contact me?", a: "When you submit the form, a chat opens so you can send your details straight to Grace, and she replies with the class details. She may also use the phone number or email you give. Your details are only used for this." },
 ];
 
 export default function Home() {
