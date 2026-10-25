@@ -1,58 +1,29 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// EDIT THIS FILE to change the page. Everything Grace will want to update
-// (links, prices, photo, testimonials) lives here — no need to touch the design.
+// EDIT THIS FILE to change the page's details.
+//
+// TikTok ads rules this page is written to follow (keep them when editing):
+//  • No income, earnings or "make money" claims, and no earnings screenshots
+//  • No guarantees, "get rich quick" or exaggerated words ("best", "fastest", "#1")
+//  • No fake urgency ("only 3 slots left", countdowns)
+//  • No links to messaging apps (WhatsApp, Telegram); people sign up with the form
+//  • No other brands' logos
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const site = {
-  brand: "Grace The Marketer",
-  topic: "YouTube & AI Automation",
-  tagline: "Learn Digital Skills. Use AI. Build Your Income Online.",
+  name: "Grace Digital Academy",
+  tagline: "Keep learning",
+  owner: "Amarachi Emmaunella Agbo",
+  ownerShort: "Grace",
+  location: "Nigeria",
+  email: "agboamarachiemmaunella@gmail.com",
+  tiktokHandle: "@grace.the.markete0",
+  tiktokUrl: "https://www.tiktok.com/@grace.the.markete0",
+  photo: "/grace.webp",
 
-  // Main call to action: the FREE WhatsApp community.
-  whatsappGroup: "https://chat.whatsapp.com/E6BeB80yxm1IkArmAHCd7L",
-
-  // Direct chat, used only for the paid program ("I want to enrol").
-  whatsappNumber: "2347049709807",
-  enrolMessage: "Hi Grace, I saw your page and I want to join the YouTube Automation program.",
-
-  tiktok: "https://www.tiktok.com/@grace.the.markete0",
-
-  // Grace's photo (public/grace.webp). Set to null to show a monogram instead.
-  photo: "/grace.webp" as string | null,
-
-  // AI-generated hero background. Save the image as public/hero-bg.webp (or .jpg)
-  // and set this to its path, e.g. "/hero-bg.webp". While null, a red glow is used.
-  heroBackground: "/hero-bg.webp" as string | null,
-
-  // Scarcity line shown in the top bar, under the hero button and on the offer.
-  slotsMessage: "Limited 1-on-1 slots available",
+  // Where the sign-up form sends entries. Create a free form at
+  // https://formspree.io, then paste its endpoint here, e.g.
+  // "https://formspree.io/f/abcdwxyz". Entries arrive in Grace's email.
+  formEndpoint: "",
 
   credit: { label: "SwiftCreator", url: "https://swiftcreator.vercel.app/" },
 };
-
-export const program = {
-  name: "YouTube Automation Blueprint",
-
-  // No prices or money amounts are shown anywhere on the page (TikTok ads
-  // review can reject landing pages that list prices or earnings).
-  // What's included in the program:
-  stack: [
-    { item: "Step-by-step YouTube Automation training — channel setup to monetization" },
-    { item: "AI content system — scripts, voiceovers and videos without showing your face" },
-    { item: "Thumbnail training — make thumbnails people actually click" },
-    { item: "Copyright made simple — avoid strikes and protect your channel" },
-    { item: "Facebook & TikTok monetization — get paid on more than one platform" },
-    { item: "One-on-one support — ask questions and get unstuck, fast" },
-  ],
-
-  guarantee: {
-    title: "The “I Won't Leave You” Guarantee",
-    body:
-      "Follow every step, do every task, and post consistently. If your channel still isn't set up, publishing and on the road to monetization, I'll keep coaching you — free — until it is. You don't pay again. I don't give up on you.",
-  },
-};
-
-// Written testimonials. Add real ones like:
-// { name: "Chioma A.", location: "Lagos", result: "Monetized in 3 months", quote: "..." }
-// The section stays hidden until at least one is added.
-export const testimonials: { name: string; location?: string; result?: string; quote: string }[] = [];

@@ -1,21 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
+import { site } from "@/site.config";
 import "./globals.css";
 
-const display = Anton({ weight: "400", subsets: ["latin"], variable: "--font-display" });
+const display = Fraunces({ subsets: ["latin"], variable: "--font-display", weight: ["500", "600", "700"] });
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata: Metadata = {
-  title: "Grace The Marketer | YouTube & AI Automation",
+  title: `${site.name} | Learn affiliate marketing, honestly`,
   description:
-    "Learn digital skills, use AI and build your income online. Join Grace's free WhatsApp community and learn YouTube automation step by step, even as a complete beginner.",
+    "Grace Digital Academy teaches beginners how affiliate marketing actually works, with honest, practical lessons on content creation, selling online and understanding your audience.",
   openGraph: {
-    title: "Turn your phone into a YouTube income skill, using AI",
-    description: "Join the free WhatsApp community. Step-by-step YouTube automation for beginners.",
+    title: `${site.name}: learn affiliate marketing, honestly`,
+    description: "Practical, beginner-friendly lessons in affiliate marketing and digital marketing. No hype, no shortcuts.",
   },
 };
 
-export const viewport: Viewport = { themeColor: "#0a0a0a" };
+export const viewport: Viewport = { themeColor: "#ffffff" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

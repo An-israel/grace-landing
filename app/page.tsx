@@ -1,390 +1,297 @@
 import Image from "next/image";
-import { Cta } from "@/components/Cta";
-import { WhatsAppIcon } from "@/components/WhatsAppIcon";
-import { YouTube3D, YouTubeIcon, YouTubeLogo } from "@/components/YouTube";
-import { program, site, testimonials } from "@/site.config";
+import { JoinForm } from "@/components/JoinForm";
+import { Logo } from "@/components/Logo";
+import { site } from "@/site.config";
 
-const enrolLink = `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(site.enrolMessage)}`;
-
-const pains = [
-  "You've watched hundreds of “make money online” videos and still haven't earned anything from it.",
-  "You don't know which skill to pick, so you keep jumping from one thing to the next.",
-  "You're scared of showing your face, or you think you need an expensive camera and laptop.",
-  "You tried YouTube before, got 12 views, and gave up.",
+const struggles = [
+  "You keep seeing flashy posts about online marketing, but nobody explains how it really works.",
+  "You don't know where to start, which platform to use, or who to trust.",
+  "You've followed “gurus” who promised a lot and taught very little.",
 ];
 
-const pillars = [
-  { n: "01", t: "Channel Setup", d: "Pick a profitable niche and set up your channel the right way from day one." },
-  { n: "02", t: "AI Content Creation", d: "Use AI to write scripts, generate voiceovers and build videos, even without showing your face." },
-  { n: "03", t: "Thumbnails That Get Clicks", d: "Design thumbnails people can't scroll past, straight from your phone." },
-  { n: "04", t: "Copyright, Simplified", d: "Know exactly what you can and can't use, so your channel doesn't get strikes." },
-  { n: "05", t: "YouTube Monetization", d: "The clear path to the YouTube Partner Program and your first payout." },
-  { n: "06", t: "Facebook & TikTok Monetization", d: "Repurpose your content and get paid on more than one platform." },
-  { n: "07", t: "AI Automation", d: "Let AI tools do the heavy lifting so you can create more in less time." },
-];
-
-const forYou = [
-  "You're a beginner and you want someone to show you step by step",
-  "You have a phone or laptop and a few hours a week",
-  "You want a real skill, not a quick-money scheme",
-  "You'll take action, not just watch",
-];
-const notForYou = [
-  "You want to get rich overnight without doing any work",
-  "You won't follow instructions or post consistently",
-  "You're looking for someone to do everything for you",
+const lessons = [
+  { t: "How affiliate marketing works", d: "What it is, how affiliate programs and links work, and how to choose products you genuinely believe in." },
+  { t: "Content creation", d: "Plan and make simple, useful content for platforms like TikTok, using just your phone." },
+  { t: "Selling online, honestly", d: "How to recommend products truthfully, disclose your affiliate links and build trust." },
+  { t: "Understanding your audience", d: "Learn who you're talking to, what they need and how your content can help them." },
+  { t: "Learning from real mistakes", d: "Real examples of what worked, what didn't, and why, so you don't repeat them." },
+  { t: "Building steady habits", d: "A simple, realistic routine for practising and improving week by week." },
 ];
 
 const steps = [
-  { t: "Join the free WhatsApp group", d: "One click. You'll get free lessons, tips and updates straight on WhatsApp." },
-  { t: "Learn the basics for free", d: "See how YouTube automation works and get clear on the path before you commit to anything." },
-  { t: "Go all in with the Blueprint", d: "When you're ready, get the full step-by-step training plus one-on-one support." },
+  { t: "Fill in the form", d: "Tell Grace a little about yourself and what you'd like to learn." },
+  { t: "Get the class details", d: "Grace contacts you with everything: what's covered, how classes run and the cost." },
+  { t: "Start learning", d: "If it's right for you, join the class and learn step by step." },
 ];
 
 const faqs = [
-  { q: "Is the WhatsApp group really free?", a: "Yes, joining the group costs you nothing. You'll get tips, lessons and updates. The paid program is optional, for people who want the full step-by-step system and one-on-one support." },
-  { q: "I'm a complete beginner. Can I do this?", a: "Yes. This was built for beginners. Everything is broken down step by step, and you can ask questions whenever you get stuck." },
-  { q: "Do I need to show my face?", a: "No. YouTube automation uses AI for scripts, voiceovers and visuals, so you can build a channel without ever appearing on camera." },
-  { q: "Can I do this with just my phone?", a: "Yes. A smartphone and data are enough to start. A laptop helps, but it isn't required." },
-  { q: "How fast will I make money?", a: "Honestly, it depends on you. YouTube rewards consistency. Some people monetize in a few months, while others take longer. This is a real skill, not a get-rich-quick scheme, and anyone who promises you guaranteed income is lying." },
-  { q: "What if I get stuck?", a: "That's what the one-on-one support is for. You're not left alone with videos. You can ask Grace directly." },
+  { q: "Do I need any experience?", a: "No. The lessons are made for complete beginners and start from the basics." },
+  { q: "What do I need to get started?", a: "A smartphone, an internet connection and a few hours each week to learn and practise." },
+  { q: "How much does the class cost?", a: "Grace shares the full class details, including the cost, when she contacts you. You can decide then, with no pressure." },
+  {
+    q: "Can you promise results?",
+    a: "No, and nobody honestly can. Grace Digital Academy teaches skills. Any results you get depend on your effort, your niche, your audience and many factors outside anyone's control.",
+  },
+  { q: "Is this a network marketing or recruiting scheme?", a: "No. There's nothing to recruit and no one to sign up under you. It's education: courses and tools that teach marketing skills." },
+  { q: "How will Grace contact me?", a: "By phone or email, using the details you give in the form. Your details are only used for this." },
 ];
-
-function Stars() {
-  return <span className="stars" aria-label="5 stars">★★★★★</span>;
-}
 
 export default function Home() {
   return (
-    <main>
-      {/* ── Announcement bar ───────────────────────────── */}
-      <a className="topbar" href={site.whatsappGroup} target="_blank" rel="noopener noreferrer">
-        <span className="pulse" aria-hidden="true" />
-        <span>FREE community is open · <strong>{site.slotsMessage}</strong> · Join on WhatsApp →</span>
-      </a>
-
-      {/* ── Hero ───────────────────────────────────────── */}
-      <header className="hero">
-        {site.heroBackground && (
-          <div className="hero-bg" aria-hidden="true">
-            <Image src={site.heroBackground} alt="" fill priority sizes="100vw" />
-          </div>
-        )}
-        <div className="container hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow"><YouTubeIcon size={20} /> {site.brand} · {site.topic}</p>
-            <h1>
-              Turn Your Phone Into a <span className="hl">YouTube Income Skill</span>, Using AI.
-            </h1>
-            <p className="lead">
-              No face on camera. No expensive gear. No experience needed. I'll show you step by step how to
-              build and monetize a YouTube channel with AI, even if you're starting from zero.
-            </p>
-            <Cta />
-            <p className="slots"><span className="slots-dot" aria-hidden="true" />{site.slotsMessage}</p>
-          </div>
-
-          <div className="hero-visual">
-            <YouTube3D className="hero-3d" />
-            <div className="portrait">
-              {site.photo ? (
-                <Image src={site.photo} alt={`${site.brand}, YouTube educator`} fill priority sizes="(max-width: 860px) 80vw, 420px" />
-              ) : (
-                <div className="monogram" aria-hidden="true">G</div>
-              )}
-            </div>
-            <div className="float-card">
-              <span className="float-label">Beginner friendly</span>
-              <strong>Step by step</strong>
-              <span className="float-sub"><YouTubeIcon size={16} /> With 1-on-1 support</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Highlights strip */}
-        <div className="container">
-          <ul className="stats">
-            <li><strong>2 yrs</strong><span>teaching digital skills</span></li>
-            <li><strong>7</strong><span>practical skills, from channel setup to AI automation</span></li>
-            <li><strong>1-on-1</strong><span>support when you get stuck</span></li>
-            <li><strong>Phone</strong><span>is enough to start learning</span></li>
-          </ul>
+    <>
+      <header className="nav">
+        <div className="container nav-inner">
+          <a href="#top" className="nav-logo" aria-label={`${site.name}, home`}>
+            <Logo />
+          </a>
+          <a href="#join" className="btn btn-primary btn-sm">Join the class</a>
         </div>
       </header>
 
-      {/* ── Problem ────────────────────────────────────── */}
-      <section className="section">
-        <div className="container narrow">
-          <p className="kicker">Be honest with yourself…</p>
-          <h2>You're Not Lazy. <span className="hl">You're Confused.</span></h2>
-          <ul className="pains">
-            {pains.map((p) => (
-              <li key={p}><span className="x" aria-hidden="true">✕</span>{p}</li>
-            ))}
-          </ul>
-          <p className="big-line">
-            The problem isn't you. It's that nobody ever gave you a <em>clear, step-by-step path</em>.
-            <br />That's exactly what I do.
-          </p>
-        </div>
-      </section>
-
-      {/* ── What you'll learn ─────────────────────────── */}
-      <section className="section alt">
-        <div className="container">
-          <div className="center logo-row"><YouTubeLogo size={34} /></div>
-          <p className="kicker center">The skill stack</p>
-          <h2 className="center">Everything You Need to Go From <span className="hl">Zero to Monetized</span></h2>
-          <div className="pillars">
-            {pillars.map((p) => (
-              <article key={p.n} className="pillar">
-                <span className="pillar-n">{p.n}</span>
-                <h3>{p.t}</h3>
-                <p>{p.d}</p>
-              </article>
-            ))}
-          </div>
-          <Cta label="Start Free on WhatsApp" />
-        </div>
-      </section>
-
-      {/* ── What it really takes ──────────────────────── */}
-      <section className="section" id="what-it-takes">
-        <div className="container narrow">
-          <p className="kicker center">No hype. Here's the truth.</p>
-          <h2 className="center">What It <span className="hl">Really Takes</span></h2>
-          <p className="section-lead center">
-            YouTube automation is a skill you learn and practise, not a shortcut. Before you join, here's exactly
-            what's involved.
-          </p>
-          <div className="takes">
-            <article className="take">
-              <h3>The work you'll do</h3>
-              <ul>
-                <li>Pick a niche and set up your channel properly</li>
-                <li>Research topics, then create videos with AI tools (scripts, voiceovers, visuals)</li>
-                <li>Design thumbnails and write titles</li>
-                <li>Upload consistently, usually for several months, and keep improving from your analytics</li>
-              </ul>
-            </article>
-            <article className="take">
-              <h3>YouTube's requirements to earn</h3>
-              <ul>
-                <li>Join the YouTube Partner Program, which has minimum subscriber and watch-time (or Shorts views) thresholds</li>
-                <li>Follow YouTube's monetization policies, community guidelines and copyright rules</li>
-                <li>Make original or meaningfully transformed content. Re-uploaded content is not monetized</li>
-                <li>Have a linked AdSense account to receive payments</li>
-              </ul>
-              <p className="take-note">
-                YouTube sets and can change these rules. Always check YouTube's official Partner Program page.
+      <main id="top">
+        {/* ── Hero ───────────────────────────────────────── */}
+        <section className="hero">
+          <div className="container hero-grid">
+            <div className="hero-copy">
+              <p className="eyebrow">{site.name} · {site.tagline}</p>
+              <h1>Learn affiliate marketing <em>the honest way.</em></h1>
+              <p className="lead">
+                Practical, beginner-friendly lessons on how affiliate marketing actually works: creating content,
+                selling online and understanding your audience. No hype. No shortcuts. Just the real process.
               </p>
-            </article>
-            <article className="take">
-              <h3>How this works</h3>
-              <ul>
-                <li>I teach the skill: training, guidance and one-on-one support</li>
-                <li>Any income comes from YouTube's ad revenue sharing once your channel qualifies, not from me</li>
-                <li>Results depend on your effort, consistency and niche. Many channels take months, and some never qualify</li>
-                <li>No income or monetization result is guaranteed</li>
-              </ul>
-            </article>
+              <div className="hero-actions">
+                <a href="#join" className="btn btn-primary">Join the class</a>
+                <a href="#about" className="btn btn-ghost">Meet Grace</a>
+              </div>
+              <p className="hero-note">For beginners aged 18+ in Nigeria and across Africa.</p>
+            </div>
+            <div className="hero-photo">
+              <Image
+                src={site.photo}
+                alt={`${site.ownerShort}, founder of ${site.name}`}
+                fill
+                priority
+                sizes="(max-width: 860px) 80vw, 440px"
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── Testimonials (hidden until real ones are added) ── */}
-      {testimonials.length > 0 && (
-        <section className="section alt">
+        {/* ── Struggles ──────────────────────────────────── */}
+        <section className="section tint">
+          <div className="container narrow center">
+            <p className="kicker">Sound familiar?</p>
+            <h2>Learning online marketing shouldn't feel this confusing.</h2>
+            <ul className="struggles">
+              {struggles.map((s) => <li key={s}>{s}</li>)}
+            </ul>
+            <p className="pull">
+              Grace Digital Academy was built for you: clear lessons, real examples and honest answers.
+            </p>
+          </div>
+        </section>
+
+        {/* ── About ──────────────────────────────────────── */}
+        <section className="section" id="about">
+          <div className="container about">
+            <div className="about-photo">
+              <Image src={site.photo} alt={site.ownerShort} fill sizes="(max-width: 860px) 60vw, 360px" />
+            </div>
+            <div>
+              <p className="kicker">About</p>
+              <h2>Hi, I'm Grace.</h2>
+              <p>
+                I'm {site.owner}, known as Grace, a digital marketer and the founder of {site.name}. I teach
+                beginners how affiliate marketing actually works.
+              </p>
+              <p>
+                I started about two years ago because I saw too many beginners getting burned by flashy promises.
+                So I do things differently: I tell it like it is. I show the work, the mistakes and the process,
+                so you can learn without being fooled.
+              </p>
+              <p>
+                I share what I learn on TikTok (<a href={site.tiktokUrl} target="_blank" rel="noopener noreferrer">{site.tiktokHandle}</a>)
+                and create digital courses and tools that help people build real marketing skills.
+              </p>
+              <blockquote className="quote">“No hype, no shortcuts, just honest, practical lessons.”</blockquote>
+            </div>
+          </div>
+        </section>
+
+        {/* ── What you'll learn ─────────────────────────── */}
+        <section className="section tint" id="learn">
           <div className="container">
-            <p className="kicker center">From the students</p>
-            <h2 className="center">What My Students <span className="hl">Say</span></h2>
-            <div className="testimonials">
-              {testimonials.map((t) => (
-                <blockquote key={t.name + t.quote} className="testimonial">
-                  <Stars />
-                  <p>“{t.quote}”</p>
-                  <footer>
-                    <strong>{t.name}</strong>
-                    {t.location && <span> · {t.location}</span>}
-                    {t.result && <span className="result">{t.result}</span>}
-                  </footer>
-                </blockquote>
+            <div className="center narrow">
+              <p className="kicker">The lessons</p>
+              <h2>What you'll learn</h2>
+            </div>
+            <div className="cards">
+              {lessons.map((l, i) => (
+                <article key={l.t} className="card">
+                  <span className="card-n">{String(i + 1).padStart(2, "0")}</span>
+                  <h3>{l.t}</h3>
+                  <p>{l.d}</p>
+                </article>
               ))}
             </div>
           </div>
         </section>
-      )}
 
-      {/* ── For / not for ──────────────────────────────── */}
-      <section className="section alt">
-        <div className="container">
-          <h2 className="center">This Is <span className="hl">NOT</span> for Everyone</h2>
-          <div className="fit">
-            <div className="fit-col yes">
-              <h3>✓ This is for you if…</h3>
-              <ul>{forYou.map((x) => <li key={x}>{x}</li>)}</ul>
+        {/* ── The honest picture ─────────────────────────── */}
+        <section className="section" id="honest">
+          <div className="container narrow">
+            <div className="center">
+              <p className="kicker">Before you join</p>
+              <h2>The honest picture</h2>
             </div>
-            <div className="fit-col no">
-              <h3>✕ Please don't join if…</h3>
-              <ul>{notForYou.map((x) => <li key={x}>{x}</li>)}</ul>
+            <div className="honest">
+              <article>
+                <h3>How affiliate marketing works</h3>
+                <p>
+                  You recommend another company's product using a special link. If someone buys through your link,
+                  that company may pay you a commission. There's no magic to it. It's a skill, and it takes practice.
+                </p>
+              </article>
+              <article>
+                <h3>What it takes</h3>
+                <ul>
+                  <li>Time to learn the basics and practise them</li>
+                  <li>Creating content consistently, often for many months</li>
+                  <li>Patience: many beginners make few or no sales at first</li>
+                  <li>Following each platform's rules and disclosing your affiliate links</li>
+                </ul>
+              </article>
+              <article>
+                <h3>What this is not</h3>
+                <ul>
+                  <li>Not a job offer or an investment</li>
+                  <li>Not a shortcut or a “quick results” programme</li>
+                  <li>Not network marketing: there's no one to recruit</li>
+                  <li>No income or results are promised</li>
+                </ul>
+              </article>
+              <article>
+                <h3>How Grace Digital Academy works</h3>
+                <p>
+                  We sell digital courses and learning tools. You're paying for education and guidance, and the
+                  skills you build are yours to use however you choose.
+                </p>
+              </article>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ── How it works ───────────────────────────────── */}
-      <section className="section">
-        <div className="container">
-          <p className="kicker center">Simple</p>
-          <h2 className="center">How It Works</h2>
-          <ol className="steps">
-            {steps.map((s, i) => (
-              <li key={s.t}>
-                <span className="step-n">{i + 1}</span>
-                <h3>{s.t}</h3>
-                <p>{s.d}</p>
-              </li>
-            ))}
-          </ol>
-          <Cta label="Take Step 1: Join Free" />
-        </div>
-      </section>
+        {/* ── Who it's for ───────────────────────────────── */}
+        <section className="section tint">
+          <div className="container">
+            <div className="center narrow">
+              <p className="kicker">Is this for you?</p>
+              <h2>Made for curious beginners</h2>
+            </div>
+            <div className="fit">
+              <div className="fit-col">
+                <h3>A good fit if you…</h3>
+                <ul>
+                  <li>Are a student, young professional, or learning alongside work or school</li>
+                  <li>Want to understand digital marketing and affiliate selling from the ground up</li>
+                  <li>Prefer honest, step-by-step teaching over hype</li>
+                  <li>Are ready to practise what you learn</li>
+                </ul>
+              </div>
+              <div className="fit-col muted-col">
+                <h3>Probably not for you if you…</h3>
+                <ul>
+                  <li>Are looking for quick results without learning</li>
+                  <li>Don't have time to practise each week</li>
+                  <li>Want someone to do the work for you</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* ── Offer ──────────────────────────────────────── */}
-      <section className="section offer-section" id="program">
-        <div className="container narrow">
-          <YouTube3D className="offer-3d" />
-          <p className="kicker center">When you're ready to go all in</p>
-          <h2 className="center">The <span className="hl">{program.name}</span></h2>
-          <div className="offer">
-            <p className="offer-head">Here's everything you get:</p>
-            <ul className="stack">
-              {program.stack.map((s) => (
-                <li key={s.item}>
-                  <span className="check" aria-hidden="true">✓</span>
-                  <span className="stack-item">{s.item}</span>
+        {/* ── How joining works ──────────────────────────── */}
+        <section className="section">
+          <div className="container">
+            <div className="center narrow">
+              <p className="kicker">Simple</p>
+              <h2>How joining works</h2>
+            </div>
+            <ol className="steps">
+              {steps.map((s, i) => (
+                <li key={s.t}>
+                  <span className="step-n">{i + 1}</span>
+                  <h3>{s.t}</h3>
+                  <p>{s.d}</p>
                 </li>
               ))}
-            </ul>
+            </ol>
+          </div>
+        </section>
 
-            <div className="price-box">
-              <p className="today small">Send me a message on WhatsApp to get all the details</p>
-              <p className="slots center-slots"><span className="slots-dot" aria-hidden="true" />{site.slotsMessage}</p>
-              <a className="cta cta-outline" href={enrolLink} target="_blank" rel="noopener noreferrer">
-                <WhatsAppIcon />
-                <span>I Want In: Message Grace</span>
-              </a>
+        {/* ── FAQ ────────────────────────────────────────── */}
+        <section className="section tint">
+          <div className="container narrow">
+            <div className="center">
+              <p className="kicker">Questions</p>
+              <h2>Frequently asked</h2>
             </div>
-
-            <div className="guarantee">
-              <div className="seal" aria-hidden="true">
-                <span>Full</span>
-                <small>Support</small>
-              </div>
-              <div>
-                <h3>{program.guarantee.title}</h3>
-                <p>{program.guarantee.body}</p>
-              </div>
+            <div className="faq">
+              {faqs.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
             </div>
           </div>
-          <p className="center muted not-ready">
-            Not ready yet? No problem. <a href={site.whatsappGroup} target="_blank" rel="noopener noreferrer">Join the free group first →</a>
-          </p>
-        </div>
-      </section>
+        </section>
 
-      {/* ── About ──────────────────────────────────────── */}
-      <section className="section alt">
-        <div className="container about">
-          <div className="about-photo">
-            {site.photo ? (
-              <Image src={site.photo} alt={site.brand} fill sizes="300px" />
-            ) : (
-              <div className="monogram small" aria-hidden="true">G</div>
-            )}
+        {/* ── Join ───────────────────────────────────────── */}
+        <section className="section join" id="join">
+          <div className="container join-grid">
+            <div>
+              <p className="kicker light">Ready when you are</p>
+              <h2>Join the class</h2>
+              <p>
+                Leave your details and Grace will get in touch with everything you need to know about the next class.
+                No pressure, and no obligation.
+              </p>
+              <p className="join-small">Prefer email? Write to <a href={`mailto:${site.email}`}>{site.email}</a></p>
+            </div>
+            <div className="form-card">
+              <JoinForm />
+            </div>
           </div>
-          <div>
-            <p className="kicker">Who's teaching you?</p>
-            <h2>Hi, I'm <span className="hl">Grace</span>.</h2>
-            <p>
-              I'm a YouTube educator, affiliate marketer and content marketer. For the past 2 years I've been
-              teaching students, beginners and aspiring online entrepreneurs how to use digital skills and AI to
-              create real income opportunities online.
-            </p>
-            <p>
-              My main focus is YouTube automation and monetization: using AI to create content, growing a
-              channel, making thumbnails, understanding copyright and getting monetized. I also teach Facebook
-              and TikTok monetization, AI automation and AI content creation.
-            </p>
-            <p className="big-line left">
-              My goal is simple: to move you from <em>consuming</em> content to <em>building</em> a skill that
-              pays you.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ── FAQ ────────────────────────────────────────── */}
-      <section className="section">
-        <div className="container narrow">
-          <h2 className="center">Questions? <span className="hl">Answered.</span></h2>
-          <div className="faq">
-            {faqs.map((f) => (
-              <details key={f.q}>
-                <summary>{f.q}</summary>
-                <p>{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Final CTA ──────────────────────────────────── */}
-      <section className="final">
-        <div className="container narrow center">
-          <YouTube3D className="final-3d" />
-          <h2>
-            A Year From Now, You'll Wish You <span className="hl">Started Today.</span>
-          </h2>
-          <p className="lead center">
-            Joining takes one click. The only thing waiting costs you is time.
-          </p>
-          <Cta label="Join the FREE WhatsApp Group Now" />
-        </div>
-      </section>
+        </section>
+      </main>
 
       <footer className="footer">
+        <div className="container footer-grid">
+          <div>
+            <Logo />
+            <p className="footer-tag">{site.tagline}.</p>
+          </div>
+          <div className="footer-links">
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <a href={site.tiktokUrl} target="_blank" rel="noopener noreferrer">TikTok {site.tiktokHandle}</a>
+            <a href="/privacy/">Privacy policy</a>
+          </div>
+        </div>
         <div className="container">
-          <p className="footer-brand"><YouTubeIcon size={30} /> {site.brand}</p>
-          <p className="muted">{site.tagline}</p>
-          <p className="footer-links">
-            <a href={site.whatsappGroup} target="_blank" rel="noopener noreferrer">WhatsApp Community</a>
-            <a href={site.tiktok} target="_blank" rel="noopener noreferrer">TikTok</a>
-          </p>
           <p className="disclaimer">
-            Disclaimer: this page offers education and training only. It is not a job, an investment or a
-            guarantee of income. YouTube automation is a skill, and results depend on your effort,
-            consistency, niche and many factors outside anyone's control. This site is not affiliated with
-            YouTube, Google, Meta or TikTok.
+            {site.name} provides education only. It is not a job offer, an investment or a business opportunity,
+            and it does not promise any income or results. Results from applying what you learn vary from person to
+            person.
           </p>
-          <p className="muted small">© {new Date().getFullYear()} {site.brand}. All rights reserved.</p>
-          <p className="credit">
-            Built by{" "}
-            <a href={site.credit.url} target="_blank" rel="noopener noreferrer">{site.credit.label}</a>
+          <p className="footer-bottom">
+            © {new Date().getFullYear()} {site.name} · {site.owner} · {site.location}
+            <span className="credit">
+              Built by <a href={site.credit.url} target="_blank" rel="noopener noreferrer">{site.credit.label}</a>
+            </span>
           </p>
         </div>
       </footer>
-
-      {/* ── Floating WhatsApp button ───────────────────── */}
-      <a
-        className="wa-float"
-        href={site.whatsappGroup}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Join the free WhatsApp group"
-      >
-        <WhatsAppIcon size={30} />
-      </a>
-    </main>
+    </>
   );
 }

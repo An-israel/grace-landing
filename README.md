@@ -1,18 +1,20 @@
-# Grace The Marketer: landing page
+# Grace Digital Academy: website
 
-A one-page, Hormozi-style sales page for **YouTube & AI Automation**, built with Next.js and exported as a static site.
+A clean, minimal one-page site for **Grace Digital Academy**, which teaches beginners affiliate marketing, plus a privacy policy page. Built with Next.js and exported as a static site.
+
+## Before going live: connect the sign-up form
+
+1. Create a free account at https://formspree.io with Grace's email, then create a new form.
+2. Copy the form endpoint, e.g. `https://formspree.io/f/abcdwxyz`.
+3. Paste it into `formEndpoint` in `site.config.ts`.
+
+Until this is done, the form shows a "didn't go through" message with Grace's email address.
 
 ## Edit the content
 
-Everything you'll want to change is in **`site.config.ts`**:
+Contact details, the TikTok handle and the photo are in **`site.config.ts`**. Page text is in `app/page.tsx`, and the privacy policy is in `app/privacy/page.tsx`.
 
-- WhatsApp group link and phone number
-- Program name, price and value price (in ₦)
-- Guarantee wording
-- Written testimonials (the section appears once you add one)
-- Photo: `public/grace.webp`
-- Hero background: save the AI image as `public/hero-bg.webp` (or `.jpg`), then set `heroBackground: "/hero-bg.webp"`
-- Scarcity line (`slotsMessage`) and the footer credit
+The page is written to pass TikTok ad review. When editing, keep to the rules listed at the top of `site.config.ts`: no income claims or earnings screenshots, no guarantees, no fake urgency, no WhatsApp/Telegram links and no other brands' logos.
 
 ## Run it
 
@@ -24,4 +26,4 @@ npm run build   # creates the static site in out/
 
 ## Host it (free)
 
-Upload the `out/` folder to Netlify Drop, or connect this repo to Vercel or Netlify. The build command is `npm run build` and the output folder is `out`.
+Connect this repo to Vercel or Netlify. The build command is `npm run build` and the output folder is `out`.
