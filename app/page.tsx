@@ -286,9 +286,6 @@ export default function Home() {
           </p>
           <p className="footer-bottom">
             © {new Date().getFullYear()} {site.name} · {site.owner} · {site.location}
-            <span className="credit">
-              Built by <a href={site.credit.url} target="_blank" rel="noopener noreferrer">{site.credit.label}</a>
-            </span>
           </p>
         </div>
       </footer>

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
+import { CreditBadge } from "@/components/CreditBadge";
 import { site } from "@/site.config";
 import "./globals.css";
 
@@ -21,7 +22,10 @@ export const viewport: Viewport = { themeColor: "#ffffff" };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <CreditBadge />
+      </body>
     </html>
   );
 }

@@ -66,9 +66,6 @@ export default function Privacy() {
         <div className="container">
           <p className="footer-bottom">
             © {new Date().getFullYear()} {site.name} · {site.location}
-            <span className="credit">
-              Built by <a href={site.credit.url} target="_blank" rel="noopener noreferrer">{site.credit.label}</a>
-            </span>
           </p>
         </div>
       </footer>

@@ -194,7 +194,32 @@ h3 { font-size: 1.12rem; font-weight: 700; }
 .footer-links { display: grid; gap: 6px; text-align: right; font-size: 0.94rem; }
 .disclaimer { margin: 28px 0 0; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.8rem; color: var(--muted); }
 .footer-bottom { margin: 12px 0 0; font-size: 0.82rem; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.credit a { color: var(--brown-dark); font-weight: 700; text-decoration: none; border-bottom: 1px solid var(--brown-soft); }
+
+/* ── Floating "Built by" badge ── */
+.credit-badge {
+  position: fixed; left: 18px; bottom: 18px; z-index: 40;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 9px 16px 9px 12px; border-radius: 999px;
+  background: rgba(62, 39, 22, 0.94); color: #f3e8dc; text-decoration: none;
+  font-size: 0.82rem; line-height: 1; backdrop-filter: blur(8px);
+  border: 1px solid rgba(243, 217, 189, 0.25);
+  box-shadow: 0 10px 28px -8px rgba(62, 39, 22, 0.55);
+  animation: credit-float 5s ease-in-out infinite;
+  transition: background 0.2s, transform 0.2s;
+}
+.credit-badge strong { color: #fff; font-weight: 800; letter-spacing: 0.01em; }
+.credit-badge:hover { background: var(--brown); color: #fff; animation-play-state: paused; }
+.credit-badge:focus-visible { outline: 3px solid var(--brown-soft); outline-offset: 3px; }
+.credit-label { opacity: 0.8; }
+.credit-arrow { opacity: 0.7; transition: transform 0.2s; }
+.credit-badge:hover .credit-arrow { transform: translate(2px, -2px); opacity: 1; }
+.credit-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #e5b98a; flex: none;
+  box-shadow: 0 0 0 0 rgba(229, 185, 138, 0.6); animation: credit-ping 2.4s ease-out infinite;
+}
+@keyframes credit-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes credit-ping { 0% { box-shadow: 0 0 0 0 rgba(229,185,138,0.6); } 80%, 100% { box-shadow: 0 0 0 9px rgba(229,185,138,0); } }
+.footer { padding-bottom: 80px; }
 
 /* ── Legal page ── */
 .legal h1 { font-size: clamp(2rem, 4vw, 2.6rem); }
@@ -202,7 +227,7 @@ h3 { font-size: 1.12rem; font-weight: 700; }
 .legal p, .legal li { color: #4a3a2f; }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { transition: none !important; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
   html { scroll-behavior: auto; }
 }
 
@@ -231,6 +256,7 @@ h3 { font-size: 1.12rem; font-weight: 700; }
   .form-card { padding: 22px 18px; }
   .logo-text { font-size: 1rem; }
   .logo-mark { width: 32px; height: 32px; font-size: 1.05rem; }
+  .credit-badge { left: 12px; bottom: 12px; font-size: 0.76rem; padding: 8px 13px 8px 10px; }
   .nav .btn-sm { padding: 9px 14px; font-size: 0.85rem; }
   .hero-actions .btn { width: 100%; }
 }

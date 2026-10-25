@@ -3,6 +3,7 @@ const nextConfig = {
   // Static export: `npm run build` produces a plain `out/` folder that can be
   // hosted free on Netlify, Vercel, GitHub Pages or any static host.
   output: "export",
+  trailingSlash: true,
   images: { unoptimized: true },
 };
 
